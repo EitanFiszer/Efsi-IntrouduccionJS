@@ -1,0 +1,2 @@
+let nota=getElementById("notaMate")
+  
