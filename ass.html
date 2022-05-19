@@ -8,13 +8,22 @@
 
 <h2>JavaScript Validation</h2>
             Nota de Matematica
-<input type="number" name="matematica" onkeyup="CheckInputsbyInput()" required /><br><br>
+<input type="number" name="matematica" id="notaMate" onkeyup="validarNota(parseInt(document.getElementById('notaMate').value),'notaMate')" required><br><br>
             Nota de lengua:
-<input type="number" name="lengua" onkeyup="CheckInputsbyInput()" required /><br><br>
+<input type="number" name="lengua" id="notaLengua" onkeyup="validarNota(document.getElementById('notaLengua').value,'notaLengua')" required><br><br>
             Nota de EFSI:
-<input type="number" name="efsi" onkeyup="CheckInputsbyInput()" required /><br><br>
+<input type="number" name="efsi" id="notaEfsi" onkeyup="validarNota(document.getElementById('notaEfsi').value,'notaEfsi')" required><br><br>
+
+<input type="button" value="calcularPromedio" onclick="calcularPromedio(document.getElementById('notaMate').value, document.getElementById('notaLengua').value,document.getElementById('notaEfsi').value)" >
+<div id="mostrarResultado">
+    <p>Resultado</p><input type="text" id="promedio" readonly>
+</div>
+<div id="mostrarResultado">
+    <p>Resultado</p><input type="text" id="maximo" readonly>
+</div>
 
 <script type="text/javascript" src="bla.js"></script>
 
 </body>
 </html> 
+
