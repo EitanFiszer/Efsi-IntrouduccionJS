@@ -1,4 +1,4 @@
-let validar=false;
+let validar=true;
 
 
 let validarNota = (nota,materia) =>{
@@ -10,6 +10,25 @@ let validarNota = (nota,materia) =>{
         document.getElementById(materia).style.color="red"
         validar=true;
     }
+    return validar;
+};
+
+let esVacio = ()=>{
+    let mate=parseFloat(document.getElementById('notaMate').value);
+    let lengua=parseFloat(document.getElementById('notaLengua').value);
+    let Efsi=parseFloat(document.getElementById('notaEfsi').value);
+    let valores=[mate,lengua,Efsi]
+    let vacio=false;
+    console.log(valores)
+        valores.forEach(nota => {
+            if(nota==null || nota=='' || isNaN(nota)){
+                vacio=true
+            }
+        });
+        if(vacio){
+            alert("Hay campos vacios")
+        }
+        return vacio;
 }
 
 
@@ -27,9 +46,42 @@ let calcularPromedio = () =>{
     document.getElementById('promedio').value=promedio;
     }
     
-    var max = Math.max(mate,lengua,Efsi);
-    document.getElementById('maximo').value=max;
+    
 }
 
 
-  
+let calcularNotaMasAlta = () =>{
+    var mate=document.getElementById('notaMate').value;
+    var lengua=document.getElementById('notaLengua').value;
+    var Efsi=document.getElementById('notaEfsi').value;
+
+    var notaAlta="";
+
+
+    esVacio ()
+
+    var max = Math.max(mate,lengua,Efsi);
+        document.getElementById('max').value=max;
+
+    if(max==mate && max==lengua){
+        notaAlta="Matematica y Lengua";
+    }else if(max==mate && max==Efsi){
+        notaAlta="Matematica y Efis";
+    }else if(max==lengua && max==Efsi){
+        notaAlta="Lengua y Efsi";
+    }else if(max==lengua){
+        notaAlta="Lengua";
+    }else if(max==mate){
+        notaAlta="Matematica";
+    }else if(max==Efsi){
+        notaAlta="Efsi";
+        }
+    
+    
+    document.getElementById("max").style.color="blue";
+    document.getElementById('max').value=notaAlta;
+        
+}
+
+
+

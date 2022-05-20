@@ -14,12 +14,14 @@
             Nota de EFSI:
 <input type="number" name="efsi" id="notaEfsi" onkeyup="validarNota(document.getElementById('notaEfsi').value,'notaEfsi')" required><br><br>
 
-<input type="button" value="calcularPromedio" onclick="calcularPromedio(document.getElementById('notaMate').value, document.getElementById('notaLengua').value,document.getElementById('notaEfsi').value)" >
+<input type="button" value="calcularPromedio" onclick="esVacio();calcularPromedio()" >
 <div id="mostrarResultado">
-    <p>Resultado</p><input type="text" id="promedio" readonly>
+    <p>Resultado</p><input type="text" id="promedio" readonly><br><br>
 </div>
-<div id="mostrarResultado">
-    <p>Resultado</p><input type="text" id="maximo" readonly>
+
+<input type="button" value="calcular Nota Mayor" onclick="esVacio();calcularNotaMasAlta()" >
+<div id="mostrar Nota Mas Alta">
+    <p>Resultado</p><input type="text" id="max" readonly>
 </div>
 
 <script type="text/javascript" src="bla.js"></script>
