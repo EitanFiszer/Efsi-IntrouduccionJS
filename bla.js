@@ -34,16 +34,25 @@ let esVacio = ()=>{
 
 
 let calcularPromedio = () =>{
-    var mate=document.getElementById('notaMate').value;
-    var lengua=document.getElementById('notaLengua').value;
-    var Efsi=document.getElementById('notaEfsi').value;
+    var mate=parseFloat(document.getElementById('notaMate').value);
+    var lengua=parseFloat(document.getElementById('notaLengua').value);
+    var Efsi=parseFloat(document.getElementById('notaEfsi').value);
 
     if(validar){
         document.getElementById('promedio').value="error";
     }
     else{
         var promedio=(parseFloat(mate)+parseFloat(lengua)+ parseFloat(Efsi))/3;
-    document.getElementById('promedio').value=promedio;
+        if(promedio>=6 && promedio<=10){
+        document.getElementById("promedio").style.color="green";
+        document.getElementById('promedio').value=promedio;
+        document.getElementById('imagen').src="../img/aprobar.gif"
+
+    }else{
+        document.getElementById("promedio").style.color="red";
+        document.getElementById('promedio').value=promedio;
+        document.getElementById('imagen').src="../img/desaprobar.gif"
+    }
     }
     
     
@@ -51,24 +60,27 @@ let calcularPromedio = () =>{
 
 
 let calcularNotaMasAlta = () =>{
-    var mate=document.getElementById('notaMate').value;
-    var lengua=document.getElementById('notaLengua').value;
-    var Efsi=document.getElementById('notaEfsi').value;
+    var mate=parseFloat(document.getElementById('notaMate').value);
+    var lengua=parseFloat(document.getElementById('notaLengua').value);
+    var Efsi=parseFloat(document.getElementById('notaEfsi').value);
 
     var notaAlta="";
 
 
-    esVacio ()
-
+    
+    
+    
     var max = Math.max(mate,lengua,Efsi);
         document.getElementById('max').value=max;
 
-    if(max==mate && max==lengua){
-        notaAlta="Matematica y Lengua";
+    if(max==mate && max==lengua && max==Efsi){
+        notaAlta="Matematica, Lengua y EFSI";
     }else if(max==mate && max==Efsi){
         notaAlta="Matematica y Efis";
     }else if(max==lengua && max==Efsi){
         notaAlta="Lengua y Efsi";
+    }else if(max==lengua && max==mate){
+        notaAlta="Matematica y Lengua";
     }else if(max==lengua){
         notaAlta="Lengua";
     }else if(max==mate){

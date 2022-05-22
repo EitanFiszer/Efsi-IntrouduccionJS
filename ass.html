@@ -6,13 +6,16 @@
     </head>
 <body>
 
-<h2>JavaScript Validation</h2>
+<h2>VALIDACION NOTAS</h2>
+<div>
+    <img src="../img/bienvenido.gif" alt="bienvenida" id="imagen">
+</div>
             Nota de Matematica
 <input type="number" name="matematica" id="notaMate" onkeyup="validarNota(parseInt(document.getElementById('notaMate').value),'notaMate')" required><br><br>
             Nota de lengua:
-<input type="number" name="lengua" id="notaLengua" onkeyup="validarNota(document.getElementById('notaLengua').value,'notaLengua')" required><br><br>
+<input type="number" name="lengua" id="notaLengua" onkeyup="validarNota(parseInt(document.getElementById('notaLengua').value),'notaLengua')" required><br><br>
             Nota de EFSI:
-<input type="number" name="efsi" id="notaEfsi" onkeyup="validarNota(document.getElementById('notaEfsi').value,'notaEfsi')" required><br><br>
+<input type="number" name="efsi" id="notaEfsi" onkeyup="validarNota(parseInt(document.getElementById('notaEfsi').value),'notaEfsi')" required><br><br>
 
 <input type="button" value="calcularPromedio" onclick="esVacio();calcularPromedio()" >
 <div id="mostrarResultado">
