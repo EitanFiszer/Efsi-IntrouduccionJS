@@ -46,12 +46,12 @@ let calcularPromedio = () =>{
         if(promedio>=6 && promedio<=10){
         document.getElementById("promedio").style.color="green";
         document.getElementById('promedio').value=promedio;
-        document.getElementById('imagen').src="../img/aprobar.gif"
+        document.getElementById('imagen').src="../Efsi-IntrouduccionJS/img/aprobar.gif"
 
     }else{
         document.getElementById("promedio").style.color="red";
         document.getElementById('promedio').value=promedio;
-        document.getElementById('imagen').src="../img/desaprobar.gif"
+        document.getElementById('imagen').src="../Efsi-IntrouduccionJS/img/desaprobar.gif"
     }
     }
     
@@ -73,7 +73,7 @@ let calcularNotaMasAlta = () =>{
     var max = Math.max(mate,lengua,Efsi);
         document.getElementById('max').value=max;
 
-    if(max==mate && max==lengua && max==Efsi){
+    if(max==mate && max==lengua && max==Efsi && validarNota(mate)){
         notaAlta="Matematica, Lengua y EFSI";
     }else if(max==mate && max==Efsi){
         notaAlta="Matematica y Efis";
