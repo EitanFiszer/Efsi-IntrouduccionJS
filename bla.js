@@ -10,6 +10,7 @@ let validarNota = (nota,materia) =>{
         document.getElementById(materia).style.color="red"
         validar=false;
     }
+    return validar;
 };
 
 let esVacio = ()=>{
@@ -37,10 +38,8 @@ let calcularPromedio = () =>{
     var lengua=parseFloat(document.getElementById('notaLengua').value);
     var Efsi=parseFloat(document.getElementById('notaEfsi').value);
 
-    if(!validar){
-        document.getElementById('promedio').value="error";
-    }
-    else{
+    if(mate<=10 && lengua<=10 && Efsi <=10){
+
         var promedio=(parseFloat(mate)+parseFloat(lengua)+ parseFloat(Efsi))/3;
         if(promedio>=6 && promedio<=10){
         document.getElementById("promedio").style.color="green";
@@ -52,10 +51,12 @@ let calcularPromedio = () =>{
         document.getElementById('promedio').value=promedio;
         document.getElementById('imagen').src="../Efsi-IntrouduccionJS/img/desaprobar.gif"
     }
+    }else{
+        alert("Eror")
+    }
     }
     
     
-}
 
 
 let calcularNotaMasAlta = () =>{
@@ -72,7 +73,7 @@ let calcularNotaMasAlta = () =>{
     var max = Math.max(mate,lengua,Efsi);
         document.getElementById('max').value=max;
 
-    if(validar){
+    if(mate<=10 && lengua<=10 && Efsi <=10){
         if(max==mate && max==lengua && max==Efsi){
             notaAlta="Matematica, Lengua y EFSI";
         }else if(max==mate && max==Efsi){
