@@ -1,16 +1,15 @@
-let validar=true;
+let validar=false;
 
 
 let validarNota = (nota,materia) =>{
   
     if(nota>=1 && nota <=10){
         document.getElementById(materia).style.color="green"
-        validar=false;
+        validar=true;
     }else{
         document.getElementById(materia).style.color="red"
-        validar=true;
+        validar=false;
     }
-    return validar;
 };
 
 let esVacio = ()=>{
@@ -26,7 +25,7 @@ let esVacio = ()=>{
             }
         });
         if(vacio){
-            alert("Hay campos vacios")
+            alert("Error")
         }
         return vacio;
 }
@@ -38,7 +37,7 @@ let calcularPromedio = () =>{
     var lengua=parseFloat(document.getElementById('notaLengua').value);
     var Efsi=parseFloat(document.getElementById('notaEfsi').value);
 
-    if(validar){
+    if(!validar){
         document.getElementById('promedio').value="error";
     }
     else{
@@ -73,21 +72,26 @@ let calcularNotaMasAlta = () =>{
     var max = Math.max(mate,lengua,Efsi);
         document.getElementById('max').value=max;
 
-    if(max==mate && max==lengua && max==Efsi && validarNota(mate)){
-        notaAlta="Matematica, Lengua y EFSI";
-    }else if(max==mate && max==Efsi){
-        notaAlta="Matematica y Efis";
-    }else if(max==lengua && max==Efsi){
-        notaAlta="Lengua y Efsi";
-    }else if(max==lengua && max==mate){
-        notaAlta="Matematica y Lengua";
-    }else if(max==lengua){
-        notaAlta="Lengua";
-    }else if(max==mate){
-        notaAlta="Matematica";
-    }else if(max==Efsi){
-        notaAlta="Efsi";
+    if(validar){
+        if(max==mate && max==lengua && max==Efsi){
+            notaAlta="Matematica, Lengua y EFSI";
+        }else if(max==mate && max==Efsi){
+            notaAlta="Matematica y Efis";
+        }else if(max==lengua && max==Efsi){
+            notaAlta="Lengua y Efsi";
+        }else if(max==lengua && max==mate){
+            notaAlta="Matematica y Lengua";
+        }else if(max==lengua){
+            notaAlta="Lengua";
+        }else if(max==mate){
+            notaAlta="Matematica";
+        }else if(max==Efsi){
+            notaAlta="Efsi";
         }
+    }else{
+        alert("Error")
+    }
+    
     
     
     document.getElementById("max").style.color="blue";
